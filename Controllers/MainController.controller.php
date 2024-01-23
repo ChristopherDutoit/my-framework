@@ -1,47 +1,54 @@
 <?php
-class MainController{
+require_once 'Services/Render.php';
+class MainController extends Render{
     public function accueil(){
-        $page_description = "Description de la page d'accueil";
-        $page_title ="Titre de la page d'accueil";
-        ob_start();
-        require_once("./Views/Accueil.view.php");
-        $page_content= ob_get_clean();
-        require_once("Views/Layouts/base.php");
+        $data_page = [
+            "page_description" => "Description de la page d'accueil",
+            "page_title" => "Titre de la page d'accueil",
+            "view" => "Views/Accueil.view.php",
+            "template" => "Views/Layouts/base.php"
+        ];
+        $this->render($data_page);
     }
 
     public function page1(){
-        $page_description = "Description de la page 1";
-        $page_title ="Titre de la page page1";
-        ob_start();
-        require_once("./Views/Page1.view.php");
-        $page_content= ob_get_clean();
-        require_once("Views/Layouts/base.php");
+        $data_page = [
+            "page_description" => "Description de la page 1",
+            "page_title" => "Page 1",
+            "view" => "Views/Page1.view.php",
+            "template" => "Views/Layouts/base.php"
+        ];
+        $this->render($data_page);
     }
 
     public function page2(){
-        $page_description = "Description de la page 2";
-        $page_title ="Titre de la page 2";
-        ob_start();
-        require_once("./Views/Page2.view.php");
-        $page_content= ob_get_clean();
-        require_once("Views/Layouts/base.php");
+        $data_page = [
+            "page_description" => "Description de la page 2",
+            "page_title" => "Page 2",
+            "view" => "Views/Page2.view.php",
+            "template" => "Views/Layouts/base.php"
+        ];
+        $this->render($data_page);
     }
 
     public function page3(){
-        $page_description = "Description de la page 3";
-        $page_title ="Titre de la page 3";
-        ob_start();
-        require_once("./Views/Page3.view.php");
-        $page_content= ob_get_clean();
-        require_once("Views/Layouts/base.php");
+        $data_page = [
+            "page_description" => "Description de la page 3",
+            "page_title" => "Page 3",
+            "view" => "Views/Page3.view.php",
+            "template" => "Views/Layouts/base.php"
+        ];
+        $this->render($data_page);
     }
 
     public function pageErreur($msg){
-        $page_description = "Page permettant de gérer les erreurs";
-        $page_title ="Page d'erreur";
-        ob_start();
-        require_once("./Views/404.error.view.php");
-        $page_content= ob_get_clean();
-        require_once("Views/Layouts/base.php");
+        $data_page = [
+            "page_description" => "Description de la page erreur",
+            "page_title" => "Page erreur",
+            "msg" => $msg,
+            "view" => "Views/404.error.view.php",
+            "template" => "Views/Layouts/base.php"
+        ];
+        $this->render($data_page);
     }
 }
