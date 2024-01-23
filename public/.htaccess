@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewiriteCond %{REQUEST_FILENAME} !-f 
+RewiriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?page=$1
